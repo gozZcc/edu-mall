@@ -1,0 +1,16 @@
+server:
+  http_port: 8080
+  enable_pprof: true
+  log_level: debug
+
+mysql:
+  dialect: mysql
+  user: root
+  password: 123456
+  host: localhost
+  port: 3306
+  database: mall
+  charset: utf8mb4
+  show_sql: true
+  max_open: 20
+  max_idle: 5
