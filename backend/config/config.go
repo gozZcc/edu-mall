@@ -21,7 +21,7 @@ type Mysql struct {
 }
 
 type Server struct {
-	HttpPort    int    `yaml:"http_port"`
+	HttpPort    string `yaml:"http_port"`
 	Env         string `yaml:"env"`
 	EnablePprof bool   `yaml:"enable_pprof"`
 	LogLevel    string `yaml:"log_level"`
@@ -58,7 +58,7 @@ func Init() (*Config, error) {
 	// 5. 生产环境强制校验
 	if env == EnvProd {
 		if os.Getenv(EnvKeyDBPwd) == "" {
-			return nil, fmt.Errorf("生产环境错误：DB_PASSWORD 不能为空")
+			return nil, fmt.Errorf("生产环境错误:DB_PASSWORD 不能为空")
 		}
 		cfg.Mysql.Password = os.Getenv(EnvKeyDBPwd)
 
