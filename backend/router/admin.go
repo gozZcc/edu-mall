@@ -1,6 +1,10 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"backend/controller"
+
+	"github.com/gin-gonic/gin"
+)
 
 type AdminRouter struct {
 }
@@ -11,9 +15,8 @@ func NewAdminRouter() IRouter {
 
 func (a *AdminRouter) Register(group *gin.RouterGroup) {
 	g := group.Group("/admin")
+	ctrl := controller.NewAdminController()
 	{
-		g.GET("/ping3", func(ctx *gin.Context) {
-			ctx.JSON(201, "ping3")
-		})
+		g.GET("/ping", ctrl.Ping)
 	}
 }
