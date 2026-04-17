@@ -1,19 +1,22 @@
 package router
 
-import "github.com/gin-gonic/gin"
+import (
+	"backend/controller"
+
+	"github.com/gin-gonic/gin"
+)
 
 type PublicRouter struct {
 }
 
-func NewPublicRouter() IRouter {
+func NewPublicRouter() *PublicRouter {
 	return &PublicRouter{}
 }
 
-func (p *PublicRouter) Register(group *gin.RouterGroup) {
-	g := group.Group("/public")
+func RegisterPublicRouter(r *gin.RouterGroup, ctrls *controller.Controllers) {
+	pr := r.Group(ModulePublic)
 	{
-		g.GET("/ping1", func(ctx *gin.Context) {
-			ctx.JSON(201, "ping1")
-		})
+		pr.GET("hello", ctrls.PublicController.Hello)
 	}
+
 }
