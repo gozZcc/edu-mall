@@ -1,21 +1,17 @@
 package service
 
-type IUserService interface {
-	Login(*UserLoginInput)
-}
+import "backend/repository"
 
 type UserService struct {
+	userRepository *repository.UserRepository
 }
 
-func NewUserService() IUserService {
-	return &UserService{}
+func NewUserService(repositories *repository.Repositories) *UserService {
+	return &UserService{
+		userRepository: repositories.UserRepository,
+	}
 }
 
-type UserLoginInput struct {
-	Username string
-	Password string
-}
-
-func (u *UserService) Login(*UserLoginInput) {
+func (u *UserService) GetUserInfo() {
 
 }

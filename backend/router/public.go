@@ -7,18 +7,16 @@ import (
 )
 
 type PublicRouter struct {
-	publicController controller.IPublicController
 }
 
-func NewPublicRouter(publicCtrl controller.IPublicController) IRouter {
-	return &PublicRouter{
-		publicController: publicCtrl,
-	}
+func NewPublicRouter() *PublicRouter {
+	return &PublicRouter{}
 }
 
-func (p *PublicRouter) Register(group *gin.RouterGroup) {
-	g := group.Group("/public")
+func RegisterPublicRouter(r *gin.RouterGroup, ctrls *controller.Controllers) {
+	pr := r.Group(ModulePublic)
 	{
-		g.GET("/login", p.publicController.Login)
+		pr.GET("hello", ctrls.PublicController.Hello)
 	}
+
 }

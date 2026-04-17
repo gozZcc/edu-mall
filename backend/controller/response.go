@@ -22,10 +22,10 @@ func Success(c *gin.Context, data interface{}) {
 	})
 }
 
-func Failed(c *gin.Context, code int, msg string) {
+func Failed(c *gin.Context, code int) {
 	c.JSON(http.StatusOK, Response{
 		Code: code,
-		Msg:  msg,
+		Msg:  consts.GetErrMsg(code),
 		Data: struct{}{},
 	})
 }
