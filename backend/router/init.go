@@ -11,6 +11,7 @@ func NewRouter(controllers *controller.Controllers) *gin.Engine {
 	v1Group := r.Group(FullApiPrefix)
 	{
 		RegisterPublicRouter(v1Group, controllers)
+		RegisterAdminRouter(v1Group, controllers)
 	}
 	return r
 }

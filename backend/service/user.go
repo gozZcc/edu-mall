@@ -11,7 +11,3 @@ func NewUserService(repositories *repository.Repositories) *UserService {
 		userRepository: repositories.UserRepository,
 	}
 }
-
-func (u *UserService) GetUserInfo() {
-
-}
