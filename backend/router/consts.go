@@ -7,5 +7,5 @@ const (
 
 	// 模块路由
 	ModulePublic = "/public"
-	ModuleUser   = "/user"
+	ModuleAdmin  = "/admin"
 )

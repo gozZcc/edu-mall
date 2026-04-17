@@ -13,6 +13,8 @@ import (
 )
 
 func main() {
+	// 初始化logger
+
 	// 获取配置信息
 	c, err := config.Init()
 	if err != nil {

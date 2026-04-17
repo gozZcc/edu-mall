@@ -16,7 +16,7 @@ func NewPublicRouter() *PublicRouter {
 func RegisterPublicRouter(r *gin.RouterGroup, ctrls *controller.Controllers) {
 	pr := r.Group(ModulePublic)
 	{
-		pr.GET("hello", ctrls.PublicController.Hello)
+		pr.GET("/hello", ctrls.PublicController.Hello)
 	}
 
 }
